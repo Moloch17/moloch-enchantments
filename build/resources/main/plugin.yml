@@ -1,0 +1,8 @@
+name: MolochEnchantments
+version: 1.0.0
+main: com.moloch.molochenchantments.MolochEnchantments
+description: Rework of the enchantment systs
+author: Moloch
+website:
+api-version: '26.1.2'
+load: STARTUP

@@ -1,0 +1,1368 @@
+{
+  "recipes": [
+    {
+      "name": "Book of Aqua Affinity",
+      "enchantment": "AQUA_AFFINITY",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "HEART_OF_THE_SEA", "nonConsumed": true },
+        { "type": "MATERIAL", "value": "NAUTILUS_SHELL" }
+      ]
+    },
+    {
+      "name": "Book of Bane of Arthropods I",
+      "enchantment": "BANE_OF_ARTHROPODS",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "SPIDER_EYE" }
+      ]
+    },
+    {
+      "name": "Book of Bane of Arthropods II",
+      "enchantment": "BANE_OF_ARTHROPODS",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "BANE_OF_ARTHROPODS", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "STRING" },
+        { "type": "MATERIAL", "value": "HONEYCOMB" }
+      ]
+    },
+    {
+      "name": "Book of Bane of Arthropods III",
+      "enchantment": "BANE_OF_ARTHROPODS",
+      "level": 3,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "BANE_OF_ARTHROPODS", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "SPIDER_EYE" },
+        { "type": "MATERIAL", "value": "COBWEB" }
+      ]
+    },
+    {
+      "name": "Book of Bane of Arthropods IV",
+      "enchantment": "BANE_OF_ARTHROPODS",
+      "level": 4,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "BANE_OF_ARTHROPODS", "level": 3 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "SPIDER_EYE" },
+        { "type": "MATERIAL", "value": "GOLDEN_DANDELION" }
+      ]
+    },
+    {
+      "name": "Book of Bane of Arthropods V",
+      "enchantment": "BANE_OF_ARTHROPODS",
+      "level": 5,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "BANE_OF_ARTHROPODS", "level": 4 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "FERMENTED_SPIDER_EYE" },
+        { "type": "POTION", "potionType": "WEAVING" }
+      ]
+    },
+    {
+      "name": "Book of Blast Protection I",
+      "enchantment": "BLAST_PROTECTION",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "RESIN_CLUMP" }
+      ]
+    },
+    {
+      "name": "Book of Blast Protection II",
+      "enchantment": "BLAST_PROTECTION",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "BLAST_PROTECTION", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "RESIN_BRICK" }
+      ]
+    },
+    {
+      "name": "Book of Blast Protection III",
+      "enchantment": "BLAST_PROTECTION",
+      "level": 3,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "BLAST_PROTECTION", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "SHIELD" },
+        { "type": "MATERIAL", "value": "WATER_BUCKET" }
+      ]
+    },
+    {
+      "name": "Book of Blast Protection IV",
+      "enchantment": "BLAST_PROTECTION",
+      "level": 4,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "BLAST_PROTECTION", "level": 3 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "SUGAR" },
+        { "type": "POTION", "potionType": "TURTLE_MASTER" }
+      ]
+    },
+    {
+      "name": "Book of Breach I",
+      "enchantment": "BREACH",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "LODESTONE" },
+        { "type": "MATERIAL", "value": "WIND_CHARGE" }
+      ]
+    },
+    {
+      "name": "Book of Breach II",
+      "enchantment": "BREACH",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "BREACH", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "LODESTONE" },
+        { "type": "MATERIAL", "value": "IRON_SPEAR" }
+      ]
+    },
+    {
+      "name": "Book of Breach III",
+      "enchantment": "BREACH",
+      "level": 3,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "BREACH", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "ENCHANTED_BOOK", "enchantment": "SHARPNESS", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" }
+      ]
+    },
+    {
+      "name": "Book of Breach IV",
+      "enchantment": "BREACH",
+      "level": 4,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "BREACH", "level": 3 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "HEAVY_CORE", "nonConsumed": true },
+        { "type": "MATERIAL", "value": "EXPERIENCE_BOTTLE" }
+      ]
+    },
+    {
+      "name": "Book of Channeling",
+      "enchantment": "CHANNELING",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "PRISMARINE_CRYSTALS" },
+        { "type": "MATERIAL", "value": "LIGHTNING_ROD" }
+      ]
+    },
+    {
+      "name": "Book of Density I",
+      "enchantment": "DENSITY",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "HEAVY_CORE" },
+        { "type": "MATERIAL", "value": "IRON_BLOCK" }
+      ]
+    },
+    {
+      "name": "Book of Density II",
+      "enchantment": "DENSITY",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "DENSITY", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "LODESTONE" },
+        { "type": "MATERIAL", "value": "BREEZE_ROD" }
+      ]
+    },
+    {
+      "name": "Book of Density III",
+      "enchantment": "DENSITY",
+      "level": 3,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "DENSITY", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "POTION", "potionType": "LONG_STRENGTH" },
+        { "type": "MATERIAL", "value": "REDSTONE" }
+      ]
+    },
+    {
+      "name": "Book of Density IV",
+      "enchantment": "DENSITY",
+      "level": 4,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "DENSITY", "level": 3 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "NETHERITE_INGOT" },
+        { "type": "MATERIAL", "value": "NETHERITE_BLOCK" }
+      ]
+    },
+    {
+      "name": "Book of Density V",
+      "enchantment": "DENSITY",
+      "level": 5,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "DENSITY", "level": 4 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "HEAVY_CORE", "nonConsumed": true },
+        { "type": "MATERIAL", "value": "EXPERIENCE_BOTTLE" }
+      ]
+    },
+    {
+      "name": "Book of Depth Strider I",
+      "enchantment": "DEPTH_STRIDER",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "SUGAR" },
+        { "type": "MATERIAL", "value": "NAUTILUS_SHELL" }
+      ]
+    },
+    {
+      "name": "Book of Depth Strider II",
+      "enchantment": "DEPTH_STRIDER",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "DEPTH_STRIDER", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "POTION", "potionType": "SWIFTNESS" },
+        { "type": "MATERIAL", "value": "REDSTONE" }
+      ]
+    },
+    {
+      "name": "Book of Depth Strider III",
+      "enchantment": "DEPTH_STRIDER",
+      "level": 3,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "DEPTH_STRIDER", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "PRISMARINE_CRYSTALS" },
+        { "type": "MATERIAL", "value": "AMETHYST_SHARD" }
+      ]
+    },
+    {
+      "name": "Book of Efficiency I",
+      "enchantment": "EFFICIENCY",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "GREEN_DYE" },
+        { "type": "MATERIAL", "value": "AMETHYST_SHARD" }
+      ]
+    },
+    {
+      "name": "Book of Efficiency II",
+      "enchantment": "EFFICIENCY",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "EFFICIENCY", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "GOLD_INGOT" },
+        { "type": "MATERIAL", "value": "EXPERIENCE_BOTTLE" }
+      ]
+    },
+    {
+      "name": "Book of Efficiency III",
+      "enchantment": "EFFICIENCY",
+      "level": 3,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "EFFICIENCY", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "PRISMARINE_SHARD" },
+        { "type": "MATERIAL", "value": "QUARTZ" }
+      ]
+    },
+    {
+      "name": "Book of Efficiency IV",
+      "enchantment": "EFFICIENCY",
+      "level": 4,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "EFFICIENCY", "level": 3 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "POTION", "potionType": "LONG_SWIFTNESS" },
+        { "type": "MATERIAL", "value": "BLAZE_POWDER" }
+      ]
+    },
+    {
+      "name": "Book of Efficiency V",
+      "enchantment": "EFFICIENCY",
+      "level": 5,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "EFFICIENCY", "level": 4 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "ECHO_SHARD", "nonConsumed": true },
+        { "type": "MATERIAL", "value": "DIAMOND" }
+      ]
+    },
+    {
+      "name": "Book of Feather Falling I",
+      "enchantment": "FEATHER_FALLING",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "FEATHER" }
+      ]
+    },
+    {
+      "name": "Book of Feather Falling II",
+      "enchantment": "FEATHER_FALLING",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "FEATHER_FALLING", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "WHITE_WOOL" },
+        { "type": "MATERIAL", "value": "COBWEB" }
+      ]
+    },
+    {
+      "name": "Book of Feather Falling III",
+      "enchantment": "FEATHER_FALLING",
+      "level": 3,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "FEATHER_FALLING", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "PHANTOM_MEMBRANE" },
+        { "type": "MATERIAL", "value": "WIND_CHARGE" }
+      ]
+    },
+    {
+      "name": "Book of Feather Falling IV",
+      "enchantment": "FEATHER_FALLING",
+      "level": 4,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "FEATHER_FALLING", "level": 3 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "POTION", "potionType": "SLOW_FALLING" },
+        { "type": "MATERIAL", "value": "REDSTONE" }
+      ]
+    },
+    {
+      "name": "Book of Fire Aspect I",
+      "enchantment": "FIRE_ASPECT",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "FIRE_CHARGE" },
+        { "type": "MATERIAL", "value": "FLINT" }
+      ]
+    },
+    {
+      "name": "Book of Fire Aspect II",
+      "enchantment": "FIRE_ASPECT",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "FIRE_ASPECT", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "BLAZE_ROD" },
+        { "type": "POTION", "potionType": "LONG_STRENGTH" }
+      ]
+    },
+    {
+      "name": "Book of Fire Protection I",
+      "enchantment": "FIRE_PROTECTION",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "SNOWBALL" },
+        { "type": "POTION", "potionType": "WATER" }
+      ]
+    },
+    {
+      "name": "Book of Fire Protection II",
+      "enchantment": "FIRE_PROTECTION",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "FIRE_PROTECTION", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "ICE" },
+        { "type": "MATERIAL", "value": "RAW_GOLD" }
+      ]
+    },
+    {
+      "name": "Book of Fire Protection III",
+      "enchantment": "FIRE_PROTECTION",
+      "level": 3,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "FIRE_PROTECTION", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "ARMADILLO_SCUTE" },
+        { "type": "POTION", "potionType": "THICK" }
+      ]
+    },
+    {
+      "name": "Book of Fire Protection IV",
+      "enchantment": "FIRE_PROTECTION",
+      "level": 4,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "FIRE_PROTECTION", "level": 3 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "SHROOMLIGHT" },
+        { "type": "POTION", "potionType": "LONG_FIRE_RESISTANCE" }
+      ]
+    },
+    {
+      "name": "Book of Flame",
+      "enchantment": "FLAME",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "BLAZE_POWDER" },
+        { "type": "MATERIAL", "value": "SPECTRAL_ARROW" },
+        { "type": "MATERIAL", "value": "GUNPOWDER" },
+        { "type": "MATERIAL", "value": "ORANGE_DYE" }
+      ]
+    },
+    {
+      "name": "Book of Fortune I",
+      "enchantment": "FORTUNE",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "RABBIT_FOOT" },
+        { "type": "MATERIAL", "value": "GOLDEN_DANDELION" }
+      ]
+    },
+    {
+      "name": "Book of Fortune II",
+      "enchantment": "FORTUNE",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "FORTUNE", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "CHAINMAIL_CHESTPLATE" },
+        { "type": "MATERIAL", "value": "GOLDEN_APPLE" }
+      ]
+    },
+    {
+      "name": "Book of Fortune III",
+      "enchantment": "FORTUNE",
+      "level": 3,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "FORTUNE", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "POTION", "potionType": "LEAPING" },
+        { "type": "MATERIAL", "value": "DIAMOND_ORE" }
+      ]
+    },
+    {
+      "name": "Book of Frost Walker I",
+      "enchantment": "FROST_WALKER",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "BLUE_ICE" },
+        { "type": "MATERIAL", "value": "AMETHYST_SHARD" }
+      ]
+    },
+    {
+      "name": "Book of Frost Walker II",
+      "enchantment": "FROST_WALKER",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "FROST_WALKER", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "SCULK_VEIN" },
+        { "type": "POTION", "potionType": "THICK" }
+      ]
+    },
+    {
+      "name": "Book of Impaling I",
+      "enchantment": "IMPALING",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "POINTED_DRIPSTONE" },
+        { "type": "MATERIAL", "value": "STRING" }
+      ]
+    },
+    {
+      "name": "Book of Impaling II",
+      "enchantment": "IMPALING",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "IMPALING", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "AMETHYST_SHARD" },
+        { "type": "MATERIAL", "value": "BONE_MEAL" }
+      ]
+    },
+    {
+      "name": "Book of Impaling III",
+      "enchantment": "IMPALING",
+      "level": 3,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "IMPALING", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "PRISMARINE_SHARD" },
+        { "type": "MATERIAL", "value": "LEAD" }
+      ]
+    },
+    {
+      "name": "Book of Impaling IV",
+      "enchantment": "IMPALING",
+      "level": 4,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "IMPALING", "level": 3 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "ARMADILLO_SCUTE" },
+        { "type": "MATERIAL", "value": "PHANTOM_MEMBRANE" }
+      ]
+    },
+    {
+      "name": "Book of Impaling V",
+      "enchantment": "IMPALING",
+      "level": 5,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "IMPALING", "level": 4 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "BREEZE_ROD" },
+        { "type": "MATERIAL", "value": "TWISTING_VINES" }
+      ]
+    },
+    {
+      "name": "Book of Infinity",
+      "enchantment": "INFINITY",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "SPECTRAL_ARROW" },
+        { "type": "MATERIAL", "value": "ECHO_SHARD" },
+        { "type": "MATERIAL", "value": "END_CRYSTAL" },
+        { "type": "MATERIAL", "value": "DRAGON_EGG" }
+      ]
+    },
+    {
+      "name": "Book of Knockback I",
+      "enchantment": "KNOCKBACK",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "FEATHER" },
+        { "type": "MATERIAL", "value": "GUNPOWDER" }
+      ]
+    },
+    {
+      "name": "Book of Knockback II",
+      "enchantment": "KNOCKBACK",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "KNOCKBACK", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "WIND_CHARGE" },
+        { "type": "MATERIAL", "value": "SLIME_BALL" }
+      ]
+    },
+    {
+      "name": "Book of Looting I",
+      "enchantment": "LOOTING",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "RABBIT_FOOT" },
+        { "type": "MATERIAL", "value": "PRISMARINE_CRYSTALS" }
+      ]
+    },
+    {
+      "name": "Book of Looting II",
+      "enchantment": "LOOTING",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "LOOTING", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "OMINOUS_BOTTLE" },
+        { "type": "MATERIAL", "value": "ARROW" }
+      ]
+    },
+    {
+      "name": "Book of Looting III",
+      "enchantment": "LOOTING",
+      "level": 3,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "LOOTING", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "POTION", "potionType": "LEAPING" },
+        { "type": "MATERIAL", "value": "WITHER_SKELETON_SKULL" }
+      ]
+    },
+    {
+      "name": "Book of Loyalty I",
+      "enchantment": "LOYALTY",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "LEAD" },
+        { "type": "MATERIAL", "value": "SLIME_BALL" }
+      ]
+    },
+    {
+      "name": "Book of Loyalty II",
+      "enchantment": "LOYALTY",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "LOYALTY", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "GLOW_INK_SAC" },
+        { "type": "MATERIAL", "value": "AMETHYST_SHARD" }
+      ]
+    },
+    {
+      "name": "Book of Loyalty III",
+      "enchantment": "LOYALTY",
+      "level": 3,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "LOYALTY", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "PRISMARINE_CRYSTALS" },
+        { "type": "MATERIAL", "value": "AXOLOTL_BUCKET" }
+      ]
+    },
+    {
+      "name": "Book of Luck of the Sea I",
+      "enchantment": "LUCK_OF_THE_SEA",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "TROPICAL_FISH" },
+        { "type": "MATERIAL", "value": "TORCHFLOWER" }
+      ]
+    },
+    {
+      "name": "Book of Luck of the Sea II",
+      "enchantment": "LUCK_OF_THE_SEA",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "LUCK_OF_THE_SEA", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "TRIPWIRE_HOOK" },
+        { "type": "MATERIAL", "value": "COPPER_BLOCK" }
+      ]
+    },
+    {
+      "name": "Book of Luck of the Sea III",
+      "enchantment": "LUCK_OF_THE_SEA",
+      "level": 3,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "LUCK_OF_THE_SEA", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "PLENTY_POTTERY_SHERD" },
+        { "type": "MATERIAL", "value": "SPONGE" }
+      ]
+    },
+    {
+      "name": "Book of Lure I",
+      "enchantment": "LURE",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "GOLDEN_DANDELION" },
+        { "type": "MATERIAL", "value": "STRING" }
+      ]
+    },
+    {
+      "name": "Book of Lure II",
+      "enchantment": "LURE",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "LURE", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "GLOW_BERRIES" },
+        { "type": "MATERIAL", "value": "LEVER" }
+      ]
+    },
+    {
+      "name": "Book of Lure III",
+      "enchantment": "LURE",
+      "level": 3,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "LURE", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "CRIMSON_FUNGUS" },
+        { "type": "MATERIAL", "value": "TRIPWIRE_HOOK" }
+      ]
+    },
+    {
+      "name": "Book of Mending",
+      "enchantment": "MENDING",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "POTION", "potionType": "LONG_REGENERATION" },
+        { "type": "MATERIAL", "value": "ECHO_SHARD" },
+        { "type": "MATERIAL", "value": "DRAGON_EGG", "nonConsumed": true },
+        { "type": "MATERIAL", "value": "CHORUS_FRUIT" },
+        { "type": "MATERIAL", "value": "EXPERIENCE_BOTTLE" },
+        { "type": "MATERIAL", "value": "GLISTERING_MELON_SLICE" },
+        { "type": "MATERIAL", "value": "POISONOUS_POTATO" }
+      ]
+    },
+    {
+      "name": "Book of Multishot",
+      "enchantment": "MULTISHOT",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "SPECTRAL_ARROW" },
+        { "type": "MATERIAL", "value": "SPECTRAL_ARROW" },
+        { "type": "MATERIAL", "value": "ENDER_EYE" },
+        { "type": "MATERIAL", "value": "TORCHFLOWER_SEEDS" }
+      ]
+    },
+    {
+      "name": "Book of Piercing I",
+      "enchantment": "PIERCING",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "IRON_NUGGET" },
+        { "type": "MATERIAL", "value": "BONE" }
+      ]
+    },
+    {
+      "name": "Book of Piercing II",
+      "enchantment": "PIERCING",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "PIERCING", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "AMETHYST_SHARD" },
+        { "type": "MATERIAL", "value": "IRON_BARS" }
+      ]
+    },
+    {
+      "name": "Book of Piercing III",
+      "enchantment": "PIERCING",
+      "level": 3,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "PIERCING", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "PRISMARINE_SHARD" },
+        { "type": "MATERIAL", "value": "BREEZE_ROD" }
+      ]
+    },
+    {
+      "name": "Book of Piercing IV",
+      "enchantment": "PIERCING",
+      "level": 4,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "PIERCING", "level": 3 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "QUARTZ" },
+        { "type": "MATERIAL", "value": "BLAZE_ROD" }
+      ]
+    },
+    {
+      "name": "Book of Power I",
+      "enchantment": "POWER",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "IRON_INGOT" },
+        { "type": "MATERIAL", "value": "STRING" }
+      ]
+    },
+    {
+      "name": "Book of Power II",
+      "enchantment": "POWER",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "POWER", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "REDSTONE" },
+        { "type": "MATERIAL", "value": "LEATHER" }
+      ]
+    },
+    {
+      "name": "Book of Power III",
+      "enchantment": "POWER",
+      "level": 3,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "POWER", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "SPYGLASS" },
+        { "type": "MATERIAL", "value": "PHANTOM_MEMBRANE" }
+      ]
+    },
+    {
+      "name": "Book of Power IV",
+      "enchantment": "POWER",
+      "level": 4,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "POWER", "level": 3 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "BAMBOO" },
+        { "type": "MATERIAL", "value": "TWISTING_VINES" }
+      ]
+    },
+    {
+      "name": "Book of Power V",
+      "enchantment": "POWER",
+      "level": 5,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "POWER", "level": 4 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "SCULK_VEIN" },
+        { "type": "MATERIAL", "value": "ARROW" }
+      ]
+    },
+    {
+      "name": "Book of Projectile Protection I",
+      "enchantment": "PROJECTILE_PROTECTION",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "BONE_MEAL" },
+        { "type": "MATERIAL", "value": "SLIME_BALL" }
+      ]
+    },
+    {
+      "name": "Book of Projectile Protection II",
+      "enchantment": "PROJECTILE_PROTECTION",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "PROJECTILE_PROTECTION", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "SHIELD" },
+        { "type": "MATERIAL", "value": "CONDUIT", "nonConsumed": true }
+      ]
+    },
+    {
+      "name": "Book of Projectile Protection III",
+      "enchantment": "PROJECTILE_PROTECTION",
+      "level": 3,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "PROJECTILE_PROTECTION", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "ARMADILLO_SCUTE" },
+        { "type": "MATERIAL", "value": "PHANTOM_MEMBRANE" }
+      ]
+    },
+    {
+      "name": "Book of Projectile Protection IV",
+      "enchantment": "PROJECTILE_PROTECTION",
+      "level": 4,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "PROJECTILE_PROTECTION", "level": 3 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "WIND_CHARGE" },
+        { "type": "MATERIAL", "value": "ENDER_PEARL" }
+      ]
+    },
+    {
+      "name": "Book of Protection I",
+      "enchantment": "PROTECTION",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "LEATHER" },
+        { "type": "MATERIAL", "value": "POPPY" }
+      ]
+    },
+    {
+      "name": "Book of Protection II",
+      "enchantment": "PROTECTION",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "PROTECTION", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "PHANTOM_MEMBRANE" },
+        { "type": "MATERIAL", "value": "NAUTILUS_SHELL" }
+      ]
+    },
+    {
+      "name": "Book of Protection III",
+      "enchantment": "PROTECTION",
+      "level": 3,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "PROTECTION", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "POTION", "potionType": "SLOWNESS" },
+        { "type": "MATERIAL", "value": "EXPERIENCE_BOTTLE" }
+      ]
+    },
+    {
+      "name": "Book of Protection IV",
+      "enchantment": "PROTECTION",
+      "level": 4,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "PROTECTION", "level": 3 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "NETHERITE_INGOT" },
+        { "type": "MATERIAL", "value": "NETHERITE_UPGRADE_SMITHING_TEMPLATE" }
+      ]
+    },
+    {
+      "name": "Book of Punch I",
+      "enchantment": "PUNCH",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "GUNPOWDER" },
+        { "type": "MATERIAL", "value": "SLIME_BALL" }
+      ]
+    },
+    {
+      "name": "Book of Punch II",
+      "enchantment": "PUNCH",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "PUNCH", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "TORCHFLOWER_SEEDS" },
+        { "type": "MATERIAL", "value": "CLAY_BALL" }
+      ]
+    },
+    {
+      "name": "Book of Quick Charge I",
+      "enchantment": "QUICK_CHARGE",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "SUGAR" },
+        { "type": "MATERIAL", "value": "RESIN_CLUMP" }
+      ]
+    },
+    {
+      "name": "Book of Quick Charge II",
+      "enchantment": "QUICK_CHARGE",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "QUICK_CHARGE", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "EXPERIENCE_BOTTLE" },
+        { "type": "MATERIAL", "value": "FLOW_BANNER_PATTERN", "nonConsumed": true }
+      ]
+    },
+    {
+      "name": "Book of Quick Charge III",
+      "enchantment": "QUICK_CHARGE",
+      "level": 3,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "QUICK_CHARGE", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "POTION", "potionType": "LONG_SWIFTNESS" },
+        { "type": "MATERIAL", "value": "ENDER_EYE" }
+      ]
+    },
+    {
+      "name": "Book of Respiration I",
+      "enchantment": "RESPIRATION",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "GLOW_LICHEN" },
+        { "type": "MATERIAL", "value": "PUFFERFISH" }
+      ]
+    },
+    {
+      "name": "Book of Respiration II",
+      "enchantment": "RESPIRATION",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "RESPIRATION", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "CONDUIT", "nonConsumed": true },
+        { "type": "MATERIAL", "value": "WIND_CHARGE" }
+      ]
+    },
+    {
+      "name": "Book of Respiration III",
+      "enchantment": "RESPIRATION",
+      "level": 3,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "RESPIRATION", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "DRIED_KELP" },
+        { "type": "POTION", "potionType": "WATER_BREATHING" }
+      ]
+    },
+    {
+      "name": "Book of Riptide I",
+      "enchantment": "RIPTIDE",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "PRISMARINE_CRYSTALS" },
+        { "type": "POTION", "potionType": "MUNDANE" }
+      ]
+    },
+    {
+      "name": "Book of Riptide II",
+      "enchantment": "RIPTIDE",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "RIPTIDE", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "SOUL_SAND" },
+        { "type": "MATERIAL", "value": "BUBBLE_CORAL" }
+      ]
+    },
+    {
+      "name": "Book of Riptide III",
+      "enchantment": "RIPTIDE",
+      "level": 3,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "RIPTIDE", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "DAYLIGHT_DETECTOR" },
+        { "type": "POTION", "potionType": "LONG_LEAPING" }
+      ]
+    },
+    {
+      "name": "Book of Sharpness I",
+      "enchantment": "SHARPNESS",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "FLINT" },
+        { "type": "MATERIAL", "value": "BONE_MEAL" }
+      ]
+    },
+    {
+      "name": "Book of Sharpness II",
+      "enchantment": "SHARPNESS",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "SHARPNESS", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "AMETHYST_SHARD" },
+        { "type": "MATERIAL", "value": "PHANTOM_MEMBRANE" }
+      ]
+    },
+    {
+      "name": "Book of Sharpness III",
+      "enchantment": "SHARPNESS",
+      "level": 3,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "SHARPNESS", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "DIAMOND" },
+        { "type": "MATERIAL", "value": "WEEPING_VINES" }
+      ]
+    },
+    {
+      "name": "Book of Sharpness IV",
+      "enchantment": "SHARPNESS",
+      "level": 4,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "SHARPNESS", "level": 3 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "ANGLER_POTTERY_SHERD", "nonConsumed": true },
+        { "type": "MATERIAL", "value": "BLAZE_POWDER" }
+      ]
+    },
+    {
+      "name": "Book of Sharpness V",
+      "enchantment": "SHARPNESS",
+      "level": 5,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "SHARPNESS", "level": 4 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "END_ROD" },
+        { "type": "POTION", "potionType": "LONG_STRENGTH" }
+      ]
+    },
+    {
+      "name": "Book of Silk Touch",
+      "enchantment": "SILK_TOUCH",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "FEATHER" },
+        { "type": "MATERIAL", "value": "WHITE_DYE" },
+        { "type": "MATERIAL", "value": "COBWEB" },
+        { "type": "MATERIAL", "value": "GLOW_LICHEN" }
+      ]
+    },
+    {
+      "name": "Book of Smite I",
+      "enchantment": "SMITE",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "ROTTEN_FLESH" },
+        { "type": "MATERIAL", "value": "GUNPOWDER" }
+      ]
+    },
+    {
+      "name": "Book of Smite II",
+      "enchantment": "SMITE",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "SMITE", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "BONE" },
+        { "type": "MATERIAL", "value": "RESIN_CLUMP" }
+      ]
+    },
+    {
+      "name": "Book of Smite III",
+      "enchantment": "SMITE",
+      "level": 3,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "SMITE", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "DEAD_BRAIN_CORAL" },
+        { "type": "MATERIAL", "value": "NETHER_WART" }
+      ]
+    },
+    {
+      "name": "Book of Smite IV",
+      "enchantment": "SMITE",
+      "level": 4,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "SMITE", "level": 3 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "PITCHER_PLANT" },
+        { "type": "MATERIAL", "value": "GHAST_TEAR" }
+      ]
+    },
+    {
+      "name": "Book of Smite V",
+      "enchantment": "SMITE",
+      "level": 5,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "SMITE", "level": 4 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "WITHER_SKELETON_SKULL" },
+        { "type": "MATERIAL", "value": "GOLDEN_APPLE" }
+      ]
+    },
+    {
+      "name": "Book of Soul Speed I",
+      "enchantment": "SOUL_SPEED",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "SOUL_SAND" },
+        { "type": "MATERIAL", "value": "SUGAR" }
+      ]
+    },
+    {
+      "name": "Book of Soul Speed II",
+      "enchantment": "SOUL_SPEED",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "SOUL_SPEED", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "SOUL_CAMPFIRE" },
+        { "type": "MATERIAL", "value": "GOLDEN_CARROT" }
+      ]
+    },
+    {
+      "name": "Book of Soul Speed III",
+      "enchantment": "SOUL_SPEED",
+      "level": 3,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "SOUL_SPEED", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "SOUL_LANTERN", "nonConsumed": true },
+        { "type": "POTION", "potionType": "LONG_SWIFTNESS" }
+      ]
+    },
+    {
+      "name": "Book of Sweeping Edge I",
+      "enchantment": "SWEEPING_EDGE",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "GUNPOWDER" },
+        { "type": "MATERIAL", "value": "BAMBOO" }
+      ]
+    },
+    {
+      "name": "Book of Sweeping Edge II",
+      "enchantment": "SWEEPING_EDGE",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "SWEEPING_EDGE", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "AMETHYST_SHARD" },
+        { "type": "MATERIAL", "value": "NETHER_WART" }
+      ]
+    },
+    {
+      "name": "Book of Sweeping Edge III",
+      "enchantment": "SWEEPING_EDGE",
+      "level": 3,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "SWEEPING_EDGE", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "FLOW_BANNER_PATTERN", "nonConsumed": true },
+        { "type": "MATERIAL", "value": "QUARTZ" },
+        { "type": "POTION", "potionType": "LONG_STRENGTH" }
+      ]
+    },
+    {
+      "name": "Book of Swift Sneak I",
+      "enchantment": "SWIFT_SNEAK",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "SUGAR" },
+        { "type": "MATERIAL", "value": "WHITE_WOOL" }
+      ]
+    },
+    {
+      "name": "Book of Swift Sneak II",
+      "enchantment": "SWIFT_SNEAK",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "SWIFT_SNEAK", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "CAKE" },
+        { "type": "MATERIAL", "value": "TURTLE_SCUTE" }
+      ]
+    },
+    {
+      "name": "Book of Swift Sneak III",
+      "enchantment": "SWIFT_SNEAK",
+      "level": 3,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "SWIFT_SNEAK", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "POTION", "potionType": "LONG_SWIFTNESS" },
+        { "type": "MATERIAL", "value": "SCULK_VEIN" }
+      ]
+    },
+    {
+      "name": "Book of Thorns I",
+      "enchantment": "THORNS",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "IRON_NUGGET" },
+        { "type": "MATERIAL", "value": "GREEN_DYE" }
+      ]
+    },
+    {
+      "name": "Book of Thorns II",
+      "enchantment": "THORNS",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "THORNS", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "POINTED_DRIPSTONE" },
+        { "type": "MATERIAL", "value": "RESIN_CLUMP" }
+      ]
+    },
+    {
+      "name": "Book of Thorns III",
+      "enchantment": "THORNS",
+      "level": 3,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "THORNS", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "BLAZE_ROD" },
+        { "type": "MATERIAL", "value": "HORN_CORAL" }
+      ]
+    },
+    {
+      "name": "Book of Unbreaking I",
+      "enchantment": "UNBREAKING",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "OBSIDIAN" },
+        { "type": "MATERIAL", "value": "PHANTOM_MEMBRANE" }
+      ]
+    },
+    {
+      "name": "Book of Unbreaking II",
+      "enchantment": "UNBREAKING",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "UNBREAKING", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "MANGROVE_ROOTS" },
+        { "type": "MATERIAL", "value": "MAGMA_CREAM" }
+      ]
+    },
+    {
+      "name": "Book of Unbreaking III",
+      "enchantment": "UNBREAKING",
+      "level": 3,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "UNBREAKING", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "TOTEM_OF_UNDYING" },
+        { "type": "MATERIAL", "value": "END_CRYSTAL" }
+      ]
+    },
+    {
+      "name": "Book of Wind Burst I",
+      "enchantment": "WIND_BURST",
+      "level": 1,
+      "ingredients": [
+        { "type": "MATERIAL", "value": "BOOK" },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "WIND_CHARGE" },
+        { "type": "MATERIAL", "value": "PHANTOM_MEMBRANE" }
+      ]
+    },
+    {
+      "name": "Book of Wind Burst II",
+      "enchantment": "WIND_BURST",
+      "level": 2,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "WIND_BURST", "level": 1 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "POTION", "potionType": "WEAVING" },
+        { "type": "MATERIAL", "value": "PRISMARINE_SHARD" }
+      ]
+    },
+    {
+      "name": "Book of Wind Burst III",
+      "enchantment": "WIND_BURST",
+      "level": 3,
+      "ingredients": [
+        { "type": "ENCHANTED_BOOK", "enchantment": "WIND_BURST", "level": 2 },
+        { "type": "MATERIAL", "value": "LAPIS_LAZULI" },
+        { "type": "MATERIAL", "value": "GUSTER_BANNER_PATTERN", "nonConsumed": true },
+        { "type": "POTION", "potionType": "LONG_LEAPING" },
+        { "type": "MATERIAL", "value": "EXPERIENCE_BOTTLE" }
+      ]
+    }
+  ]
+}
