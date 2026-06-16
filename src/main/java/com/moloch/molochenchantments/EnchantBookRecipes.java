@@ -19,14 +19,15 @@ import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.potion.PotionType;
 
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.NamedTextColor;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -74,9 +75,9 @@ public final class EnchantBookRecipes implements Listener {
     }
 
     private void loadRecipesFromJson() throws IOException {
-        plugin.saveResource("recipes.json", false);
-        File recipeFile = new File(plugin.getDataFolder(), "recipes.json");
-        try (BufferedReader reader = new BufferedReader(new FileReader(recipeFile, StandardCharsets.UTF_8))) {
+        InputStream is = plugin.getResource("recipes.json");
+        if (is == null) throw new IOException("recipes.json not found in plugin jar");
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
 
             JsonObject root = new Gson().fromJson(reader, JsonObject.class);
             JsonArray recipes = root.getAsJsonArray("recipes");
@@ -104,7 +105,7 @@ public final class EnchantBookRecipes implements Listener {
         }
     }
 
-    /** Parses a single recipe object and registers it. Supports MATERIAL, POTION, and ENCHANTED_BOOK ingredients. */
+    /** Parses a single recipe object and registers it. Supports MATERIAL, POTION, and TIPPED_ARROW ingredients. */
     private void loadRecipeFromJson(JsonObject recipeObj) {
         String enchantStr = recipeObj.get("enchantment").getAsString();
         int level = recipeObj.get("level").getAsInt();
@@ -136,15 +137,9 @@ public final class EnchantBookRecipes implements Listener {
                     PotionType potionType = PotionType.valueOf(ingredientObj.get("potionType").getAsString());
                     yield createPotionChoice(potionType);
                 }
-                case "ENCHANTED_BOOK" -> {
-                    Enchantment bookEnchant = RegistryAccess.registryAccess()
-                            .getRegistry(RegistryKey.ENCHANTMENT)
-                            .get(NamespacedKey.minecraft(ingredientObj.get("enchantment").getAsString().toLowerCase()));
-                    if (bookEnchant == null) {
-                        throw new IllegalArgumentException("Unknown enchantment in book: " +
-                                ingredientObj.get("enchantment").getAsString());
-                    }
-                    yield enchantedBookChoice(bookEnchant, ingredientObj.get("level").getAsInt());
+                case "TIPPED_ARROW" -> {
+                    PotionType potionType = PotionType.valueOf(ingredientObj.get("potionType").getAsString());
+                    yield createTippedArrowChoice(potionType);
                 }
                 default -> throw new IllegalArgumentException("Unknown ingredient type: " + type);
             };
@@ -163,6 +158,14 @@ public final class EnchantBookRecipes implements Listener {
         return new RecipeChoice.ExactChoice(potion);
     }
 
+    private RecipeChoice createTippedArrowChoice(PotionType potionType) {
+        ItemStack arrow = new ItemStack(Material.TIPPED_ARROW);
+        PotionMeta meta = (PotionMeta) arrow.getItemMeta();
+        meta.setBasePotionType(potionType);
+        arrow.setItemMeta(meta);
+        return new RecipeChoice.ExactChoice(arrow);
+    }
+
     private String nameFor(Enchantment enchant, int level) {
         String[] words = enchant.getKey().getKey().split("_");
         StringBuilder sb = new StringBuilder();
@@ -175,6 +178,19 @@ public final class EnchantBookRecipes implements Listener {
                 : "Book of " + base + " " + ROMAN[level];
     }
 
+    private String formatMaterialName(Material material) {
+        String[] parts = material.name().split("_");
+        StringBuilder sb = new StringBuilder();
+        for (String part : parts) {
+            if (!part.isEmpty()) {
+                sb.append(Character.toUpperCase(part.charAt(0)))
+                  .append(part.substring(1).toLowerCase())
+                  .append(' ');
+            }
+        }
+        return sb.toString().trim();
+    }
+
     private ItemStack enchantedBook(Enchantment enchant, int level) {
         ItemStack book = new ItemStack(Material.ENCHANTED_BOOK);
         EnchantmentStorageMeta meta = (EnchantmentStorageMeta) book.getItemMeta();
@@ -184,18 +200,21 @@ public final class EnchantBookRecipes implements Listener {
         return book;
     }
 
-    private RecipeChoice enchantedBookChoice(Enchantment enchant, int level) {
-        ItemStack plain = new ItemStack(Material.ENCHANTED_BOOK);
-        EnchantmentStorageMeta plainMeta = (EnchantmentStorageMeta) plain.getItemMeta();
-        plainMeta.addStoredEnchant(enchant, level, true);
-        plain.setItemMeta(plainMeta);
-        return new RecipeChoice.ExactChoice(enchantedBook(enchant, level), plain);
-    }
-
     private void register(String keyName, Enchantment enchant, int level,
             List<RecipeChoice> ingredients, Material ncReturnMaterial) {
         NamespacedKey key = new NamespacedKey(plugin, keyName);
-        ShapelessRecipe recipe = new ShapelessRecipe(key, enchantedBook(enchant, level));
+
+        ItemStack result = enchantedBook(enchant, level);
+        if (ncReturnMaterial != null) {
+            EnchantmentStorageMeta meta = (EnchantmentStorageMeta) result.getItemMeta();
+            meta.lore(List.of(
+                Component.text(formatMaterialName(ncReturnMaterial)).color(NamedTextColor.GOLD)
+                    .append(Component.text(" will not be consumed when crafting this item").color(NamedTextColor.YELLOW))
+            ));
+            result.setItemMeta(meta);
+        }
+
+        ShapelessRecipe recipe = new ShapelessRecipe(key, result);
         for (RecipeChoice choice : ingredients) {
             recipe.addIngredient(choice);
         }
