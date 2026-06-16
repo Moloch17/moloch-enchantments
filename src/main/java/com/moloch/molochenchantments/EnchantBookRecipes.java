@@ -20,15 +20,7 @@ import org.bukkit.potion.PotionType;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -57,16 +49,27 @@ public final class EnchantBookRecipes implements Listener {
         this.plugin = plugin;
     }
 
-    /** Loads all recipes from recipes.json and discovers them for online players. */
     public void registerAll() {
-        plugin.getLogger().info("Registering enchanted book recipes from JSON...");
-        try {
-            loadRecipesFromJson();
-            plugin.getLogger().info("Registered " + recipeKeys.size() + " enchanted book recipes.");
-        } catch (Exception e) {
-            plugin.getLogger().severe("Failed to load recipes from JSON!");
-            e.printStackTrace();
-            return;
+        plugin.getLogger().info("Registering enchanted book recipes...");
+        int loaded = 0;
+        List<String> failed = new ArrayList<>();
+
+        for (RecipeDefinitions.RecipeData recipe : RecipeDefinitions.getAllRecipes()) {
+            String label = recipe.enchantment() + "_" + recipe.level();
+            try {
+                loadRecipe(recipe);
+                loaded++;
+            } catch (Exception e) {
+                failed.add(label + " (" + e.getMessage() + ")");
+            }
+        }
+
+        plugin.getLogger().info("Registered " + loaded + " enchanted book recipes.");
+        if (!failed.isEmpty()) {
+            plugin.getLogger().warning("Failed to register " + failed.size() + " recipe(s):");
+            for (String f : failed) {
+                plugin.getLogger().warning("  - " + f);
+            }
         }
 
         for (Player player : Bukkit.getOnlinePlayers()) {
@@ -74,80 +77,32 @@ public final class EnchantBookRecipes implements Listener {
         }
     }
 
-    private void loadRecipesFromJson() throws IOException {
-        InputStream is = plugin.getResource("recipes.json");
-        if (is == null) throw new IOException("recipes.json not found in plugin jar");
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
-
-            JsonObject root = new Gson().fromJson(reader, JsonObject.class);
-            JsonArray recipes = root.getAsJsonArray("recipes");
-
-            int loaded = 0;
-            List<String> failed = new ArrayList<>();
-            for (int i = 0; i < recipes.size(); i++) {
-                JsonObject recipeObj = recipes.get(i).getAsJsonObject();
-                String name = recipeObj.has("name") ? recipeObj.get("name").getAsString() : "index " + i;
-                try {
-                    loadRecipeFromJson(recipeObj);
-                    loaded++;
-                } catch (Exception e) {
-                    failed.add(name + " (" + e.getMessage() + ")");
-                }
-            }
-
-            plugin.getLogger().info("Loaded " + loaded + "/" + recipes.size() + " recipes from JSON.");
-            if (!failed.isEmpty()) {
-                plugin.getLogger().warning("Failed to register " + failed.size() + " recipe(s):");
-                for (String f : failed) {
-                    plugin.getLogger().warning("  - " + f);
-                }
-            }
-        }
-    }
-
-    /** Parses a single recipe object and registers it. Supports MATERIAL, POTION, and TIPPED_ARROW ingredients. */
-    private void loadRecipeFromJson(JsonObject recipeObj) {
-        String enchantStr = recipeObj.get("enchantment").getAsString();
-        int level = recipeObj.get("level").getAsInt();
-
+    private void loadRecipe(RecipeDefinitions.RecipeData recipeData) {
         Enchantment enchantment = RegistryAccess.registryAccess()
                 .getRegistry(RegistryKey.ENCHANTMENT)
-                .get(NamespacedKey.minecraft(enchantStr.toLowerCase()));
+                .get(NamespacedKey.minecraft(recipeData.enchantment().toLowerCase()));
         if (enchantment == null) {
-            throw new IllegalArgumentException("Unknown enchantment: " + enchantStr);
+            throw new IllegalArgumentException("Unknown enchantment: " + recipeData.enchantment());
         }
 
-        JsonArray ingredientArray = recipeObj.getAsJsonArray("ingredients");
         List<RecipeChoice> ingredients = new ArrayList<>();
         Material ncReturnMaterial = null;
 
-        for (int i = 0; i < ingredientArray.size(); i++) {
-            JsonObject ingredientObj = ingredientArray.get(i).getAsJsonObject();
-            String type = ingredientObj.get("type").getAsString();
-
-            RecipeChoice choice = switch (type) {
+        for (RecipeDefinitions.Ingredient ing : recipeData.ingredients()) {
+            RecipeChoice choice = switch (ing.type()) {
                 case "MATERIAL" -> {
-                    Material material = Material.valueOf(ingredientObj.get("value").getAsString());
-                    if (ingredientObj.has("nonConsumed") && ingredientObj.get("nonConsumed").getAsBoolean()) {
-                        ncReturnMaterial = material;
-                    }
+                    Material material = Material.valueOf(ing.value());
+                    if (ing.nonConsumed()) ncReturnMaterial = material;
                     yield new RecipeChoice.ExactChoice(new ItemStack(material));
                 }
-                case "POTION" -> {
-                    PotionType potionType = PotionType.valueOf(ingredientObj.get("potionType").getAsString());
-                    yield createPotionChoice(potionType);
-                }
-                case "TIPPED_ARROW" -> {
-                    PotionType potionType = PotionType.valueOf(ingredientObj.get("potionType").getAsString());
-                    yield createTippedArrowChoice(potionType);
-                }
-                default -> throw new IllegalArgumentException("Unknown ingredient type: " + type);
+                case "POTION" -> createPotionChoice(PotionType.valueOf(ing.potionType()));
+                case "TIPPED_ARROW" -> createTippedArrowChoice(PotionType.valueOf(ing.potionType()));
+                default -> throw new IllegalArgumentException("Unknown ingredient type: " + ing.type());
             };
-
             ingredients.add(choice);
         }
 
-        register(enchantment.getKey().getKey() + "_" + level, enchantment, level, ingredients, ncReturnMaterial);
+        register(enchantment.getKey().getKey() + "_" + recipeData.level(), enchantment, recipeData.level(), ingredients, ncReturnMaterial);
     }
 
     private RecipeChoice createPotionChoice(PotionType potionType) {
@@ -231,12 +186,10 @@ public final class EnchantBookRecipes implements Listener {
         discoverRecipesForPlayer(event.getPlayer());
     }
 
-    /** Makes all registered enchant book recipes visible in the player's recipe book. */
     public void discoverRecipesForPlayer(Player player) {
         player.discoverRecipes(recipeKeys);
     }
 
-    /** Returns any non-consumed ingredient to the player's inventory after a matching craft. */
     @EventHandler
     public void onCraft(CraftItemEvent event) {
         if (!(event.getRecipe() instanceof org.bukkit.Keyed keyed)) return;
