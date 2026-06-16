@@ -10,6 +10,7 @@ public final class MolochEnchantments extends JavaPlugin {
     public void onEnable() {
         removeEnchantingTableRecipe();
         Bukkit.getPluginManager().registerEvents(new EnchantingTableListener(), this);
+        Bukkit.getPluginManager().registerEvents(new AnvilListener(), this);
         getLogger().info("MolochEnchantments has been enabled!");
 
         EnchantBookRecipes recipes = new EnchantBookRecipes(this);
