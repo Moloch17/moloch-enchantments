@@ -99,6 +99,8 @@ public final class EnchantBookRecipes implements Listener {
                     yield new RecipeChoice.ExactChoice(new ItemStack(material));
                 }
                 case "POTION" -> createPotionChoice(PotionType.valueOf(ing.potionType()));
+                case "SPLASH_POTION" -> createSplashPotionChoice(PotionType.valueOf(ing.potionType()));
+                case "LINGERING_POTION" -> createLingeringPotionChoice(PotionType.valueOf(ing.potionType()));
                 case "TIPPED_ARROW" -> createTippedArrowChoice(PotionType.valueOf(ing.potionType()));
                 default -> throw new IllegalArgumentException("Unknown ingredient type: " + ing.type());
             };
@@ -110,6 +112,22 @@ public final class EnchantBookRecipes implements Listener {
 
     private RecipeChoice createPotionChoice(PotionType potionType) {
         ItemStack potion = new ItemStack(Material.POTION);
+        PotionMeta meta = (PotionMeta) potion.getItemMeta();
+        meta.setBasePotionType(potionType);
+        potion.setItemMeta(meta);
+        return new RecipeChoice.ExactChoice(potion);
+    }
+
+    private RecipeChoice createSplashPotionChoice(PotionType potionType) {
+        ItemStack potion = new ItemStack(Material.SPLASH_POTION);
+        PotionMeta meta = (PotionMeta) potion.getItemMeta();
+        meta.setBasePotionType(potionType);
+        potion.setItemMeta(meta);
+        return new RecipeChoice.ExactChoice(potion);
+    }
+
+    private RecipeChoice createLingeringPotionChoice(PotionType potionType) {
+        ItemStack potion = new ItemStack(Material.LINGERING_POTION);
         PotionMeta meta = (PotionMeta) potion.getItemMeta();
         meta.setBasePotionType(potionType);
         potion.setItemMeta(meta);
