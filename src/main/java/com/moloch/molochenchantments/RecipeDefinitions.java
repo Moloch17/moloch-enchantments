@@ -21,6 +21,7 @@ public final class RecipeDefinitions {
             new RecipeData("AQUA_AFFINITY", 1, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.matNC("HEART_OF_THE_SEA"),
                 Ingredient.mat("NAUTILUS_SHELL")
             )),
@@ -29,30 +30,35 @@ public final class RecipeDefinitions {
             new RecipeData("BANE_OF_ARTHROPODS", 1, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.mat("SPIDER_EYE"),
                 Ingredient.mat("STRING")
             )),
             new RecipeData("BANE_OF_ARTHROPODS", 2, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.mat("SPIDER_EYE"),
                 Ingredient.mat("COBWEB")
             )),
             new RecipeData("BANE_OF_ARTHROPODS", 3, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.mat("SPIDER_EYE"),
                 Ingredient.mat("ENDER_PEARL")
             )),
             new RecipeData("BANE_OF_ARTHROPODS", 4, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.mat("FERMENTED_SPIDER_EYE"),
                 Ingredient.mat("ENDER_EYE")
             )),
             new RecipeData("BANE_OF_ARTHROPODS", 5, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.mat("FERMENTED_SPIDER_EYE"),
                 Ingredient.potion("WEAVING")
             )),
@@ -61,24 +67,28 @@ public final class RecipeDefinitions {
             new RecipeData("BLAST_PROTECTION", 1, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.mat("SHIELD"),
                 Ingredient.mat("COPPER_BLOCK")
             )),
             new RecipeData("BLAST_PROTECTION", 2, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.mat("SHIELD"),
                 Ingredient.mat("IRON_BLOCK")
             )),
             new RecipeData("BLAST_PROTECTION", 3, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.mat("SHIELD"),
                 Ingredient.mat("ANVIL")
             )),
             new RecipeData("BLAST_PROTECTION", 4, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.mat("SHIELD"),
                 Ingredient.mat("DIAMOND_BLOCK")
             )),
@@ -88,61 +98,71 @@ public final class RecipeDefinitions {
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
                 Ingredient.mat("GOLD_INGOT"),
+                Ingredient.mat("DIAMOND"),
                 Ingredient.mat("AMETHYST_SHARD")
             )),
             new RecipeData("EFFICIENCY", 2, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
                 Ingredient.mat("GOLD_INGOT"),
+                Ingredient.mat("DIAMOND"),
                 Ingredient.mat("QUARTZ")
             )),
             new RecipeData("EFFICIENCY", 3, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
                 Ingredient.mat("GOLD_INGOT"),
+                Ingredient.mat("DIAMOND"),
                 Ingredient.mat("BLAZE_POWDER")
             )),
             new RecipeData("EFFICIENCY", 4, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
                 Ingredient.mat("GOLD_INGOT"),
+                Ingredient.mat("DIAMOND"),
                 Ingredient.potion("STRONG_SWIFTNESS")
             )),
             new RecipeData("EFFICIENCY", 5, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.mat("DIAMOND"),
-                Ingredient.mat("ECHO_SHARD")
+                Ingredient.matNC("ECHO_SHARD")
             )),
 
             // Power
             new RecipeData("POWER", 1, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.mat("IRON_INGOT"),
                 Ingredient.mat("STRING")
             )),
             new RecipeData("POWER", 2, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.mat("REDSTONE"),
                 Ingredient.mat("LEATHER")
             )),
             new RecipeData("POWER", 3, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.mat("SPYGLASS"),
                 Ingredient.mat("PHANTOM_MEMBRANE")
             )),
             new RecipeData("POWER", 4, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.mat("BAMBOO"),
                 Ingredient.mat("TWISTING_VINES")
             )),
             new RecipeData("POWER", 5, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.mat("SCULK_VEIN"),
                 Ingredient.tippedArrow("SWIFTNESS")
             )),
@@ -151,24 +171,28 @@ public final class RecipeDefinitions {
             new RecipeData("PROTECTION", 1, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.mat("LEATHER"),
                 Ingredient.mat("POPPY")
             )),
             new RecipeData("PROTECTION", 2, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.mat("PHANTOM_MEMBRANE"),
                 Ingredient.mat("NAUTILUS_SHELL")
             )),
             new RecipeData("PROTECTION", 3, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.potion("SLOWNESS"),
                 Ingredient.mat("EXPERIENCE_BOTTLE")
             )),
             new RecipeData("PROTECTION", 4, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.mat("NETHERITE_UPGRADE_SMITHING_TEMPLATE"),
                 Ingredient.mat("ANCIENT_DEBRIS")
             )),
@@ -177,18 +201,21 @@ public final class RecipeDefinitions {
             new RecipeData("QUICK_CHARGE", 1, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.mat("SUGAR"),
                 Ingredient.mat("RESIN_CLUMP")
             )),
             new RecipeData("QUICK_CHARGE", 2, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.mat("EXPERIENCE_BOTTLE"),
                 Ingredient.matNC("FLOW_BANNER_PATTERN")
             )),
             new RecipeData("QUICK_CHARGE", 3, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.potion("SWIFTNESS"),
                 Ingredient.mat("ENDER_EYE")
             )),
@@ -197,24 +224,28 @@ public final class RecipeDefinitions {
             new RecipeData("SHARPNESS", 1, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.mat("FLINT"),
                 Ingredient.mat("BONE_MEAL")
             )),
             new RecipeData("SHARPNESS", 2, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.mat("AMETHYST_SHARD"),
                 Ingredient.mat("PHANTOM_MEMBRANE")
             )),
             new RecipeData("SHARPNESS", 3, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.mat("DIAMOND"),
                 Ingredient.mat("WEEPING_VINES")
             )),
             new RecipeData("SHARPNESS", 4, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.matNC("BLADE_POTTERY_SHERD"),
                 Ingredient.mat("BLAZE_POWDER"),
                 Ingredient.mat("TORCHFLOWER_SEEDS")
@@ -222,6 +253,7 @@ public final class RecipeDefinitions {
             new RecipeData("SHARPNESS", 5, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.mat("END_ROD"),
                 Ingredient.potion("STRONG_STRENGTH")
             )),
@@ -230,18 +262,21 @@ public final class RecipeDefinitions {
             new RecipeData("UNBREAKING", 1, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.mat("OBSIDIAN"),
                 Ingredient.mat("PHANTOM_MEMBRANE")
             )),
             new RecipeData("UNBREAKING", 2, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.mat("MANGROVE_ROOTS"),
                 Ingredient.mat("MAGMA_CREAM")
             )),
             new RecipeData("UNBREAKING", 3, List.of(
                 Ingredient.mat("BOOK"),
                 Ingredient.mat("LAPIS_LAZULI"),
+                Ingredient.mat("GOLD_INGOT"),
                 Ingredient.matNC("TOTEM_OF_UNDYING"),
                 Ingredient.mat("END_CRYSTAL"),
                 Ingredient.mat("TURTLE_SCUTE")
