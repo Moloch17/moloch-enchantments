@@ -11,6 +11,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.CraftItemEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.inventory.CraftingInventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.RecipeChoice;
 import org.bukkit.inventory.ShapelessRecipe;
@@ -75,6 +76,8 @@ public final class EnchantBookRecipes implements Listener {
         for (Player player : Bukkit.getOnlinePlayers()) {
             discoverRecipesForPlayer(player);
         }
+
+        plugin.getServer().getScheduler().runTaskTimer(plugin, this::cleanAllCraftingGrids, 1L, 1L);
     }
 
     private void loadRecipe(RecipeDefinitions.RecipeData recipeData) {
@@ -119,6 +122,43 @@ public final class EnchantBookRecipes implements Listener {
         meta.setBasePotionType(potionType);
         arrow.setItemMeta(meta);
         return new RecipeChoice.ExactChoice(arrow);
+    }
+
+    private void cleanAllCraftingGrids() {
+        for (Player player : plugin.getServer().getOnlinePlayers()) {
+            if (!(player.getOpenInventory().getTopInventory() instanceof CraftingInventory inv)) continue;
+            applyCleanPotions(inv);
+        }
+    }
+
+    private void applyCleanPotions(CraftingInventory inv) {
+        if (inv.getViewers().isEmpty()) return;
+        ItemStack[] matrix = inv.getMatrix();
+        boolean changed = false;
+        for (int i = 0; i < matrix.length; i++) {
+            if (matrix[i] == null) continue;
+            ItemStack clean = cleanPotion(matrix[i]);
+            if (clean != matrix[i]) {
+                matrix[i] = clean;
+                changed = true;
+            }
+        }
+        if (changed) {
+            inv.setMatrix(matrix);
+        }
+    }
+
+    private ItemStack cleanPotion(ItemStack item) {
+        if (!(item.getItemMeta() instanceof PotionMeta meta)) return item;
+        PotionType type = meta.getBasePotionType();
+        if (type == null) return item;
+        if (!meta.hasLore() && !meta.hasDisplayName() && meta.getCustomEffects().isEmpty()) return item;
+
+        ItemStack clean = new ItemStack(item.getType(), item.getAmount());
+        PotionMeta cleanMeta = (PotionMeta) clean.getItemMeta();
+        cleanMeta.setBasePotionType(type);
+        clean.setItemMeta(cleanMeta);
+        return clean;
     }
 
     private String nameFor(Enchantment enchant, int level) {
