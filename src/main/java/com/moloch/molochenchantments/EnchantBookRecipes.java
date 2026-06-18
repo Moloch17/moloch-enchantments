@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.CraftItemEvent;
+import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.CraftingInventory;
 import org.bukkit.inventory.ItemStack;
@@ -246,6 +247,19 @@ public final class EnchantBookRecipes implements Listener {
 
     public void discoverRecipesForPlayer(Player player) {
         player.discoverRecipes(recipeKeys);
+    }
+
+    @EventHandler
+    public void onInventoryOpen(InventoryOpenEvent event) {
+        if (!(event.getInventory() instanceof CraftingInventory)) return;
+        if (!(event.getPlayer() instanceof Player player)) return;
+
+        for (int i = 0; i < player.getInventory().getSize(); i++) {
+            ItemStack item = player.getInventory().getItem(i);
+            if (item != null && item.getItemMeta() instanceof PotionMeta) {
+                player.getInventory().setItem(i, cleanPotion(item));
+            }
+        }
     }
 
     @EventHandler
