@@ -19,6 +19,18 @@ java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(25))
 }
 
+tasks.withType<JavaCompile> {
+    options.compilerArgs.add("-Xlint:deprecation")
+}
+
+// Build the distributable resource pack zip (upload its output to your host).
+// Output: build/generated/resourcepack/pack.zip
+tasks.register<Zip>("packZip") {
+    from("resourcepack")
+    archiveFileName.set("pack.zip")
+    destinationDirectory.set(layout.buildDirectory.dir("generated/resourcepack"))
+}
+
 tasks.build {
-    dependsOn("shadowJar")
+    dependsOn("shadowJar", "packZip")
 }

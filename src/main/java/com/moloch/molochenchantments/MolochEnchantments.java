@@ -1,16 +1,35 @@
 package com.moloch.molochenchantments;
 
 import org.bukkit.Bukkit;
-import org.bukkit.NamespacedKey;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class MolochEnchantments extends JavaPlugin {
 
+    private EnchantTableDecorator decorator;
+    private ResourcePackService resourcePack;
+
     @Override
     public void onEnable() {
-        removeEnchantingTableRecipe();
-        Bukkit.getPluginManager().registerEvents(new EnchantingTableListener(), this);
+        saveDefaultConfig();
+
+        ScryingTable scryingTable = new ScryingTable(this);
+        Bukkit.getPluginManager().registerEvents(scryingTable, this);
+        Bukkit.getPluginManager().registerEvents(new EnchantingTableListener(scryingTable), this);
         Bukkit.getPluginManager().registerEvents(new AnvilListener(this), this);
+
+        decorator = new EnchantTableDecorator(this);
+        Bukkit.getPluginManager().registerEvents(decorator, this);
+        decorator.start();
+
+        EnchantingTableRecipe tableRecipe = new EnchantingTableRecipe(this);
+        tableRecipe.register();
+        Bukkit.getPluginManager().registerEvents(tableRecipe, this);
+
+        resourcePack = new ResourcePackService(this);
+        if (resourcePack.start()) {
+            Bukkit.getPluginManager().registerEvents(resourcePack, this);
+        }
+
         getLogger().info("MolochEnchantments has been enabled!");
 
         EnchantBookRecipes recipes = new EnchantBookRecipes(this);
@@ -20,16 +39,12 @@ public final class MolochEnchantments extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        getLogger().info("MolochEnchantments has been disabled!");
-    }
-
-    private void removeEnchantingTableRecipe() {
-        NamespacedKey key = NamespacedKey.minecraft("enchanting_table");
-        boolean removed = Bukkit.removeRecipe(key);
-        if (removed) {
-            getLogger().info("Removed enchanting table recipe.");
-        } else {
-            getLogger().warning("Enchanting table recipe was not found / already removed.");
+        if (decorator != null) {
+            decorator.stop();
         }
+        if (resourcePack != null) {
+            resourcePack.stop();
+        }
+        getLogger().info("MolochEnchantments has been disabled!");
     }
 }

@@ -1,0 +1,11 @@
+# Resource pack delivery.
+# The pack is hosted externally; the plugin sends its URL to players on join and
+# fetches it once at startup to compute the SHA-1 hash clients use for caching.
+resource-pack:
+  enabled: true
+  # Public URL that serves the pack .zip.
+  url: "https://downloads.moloch.cc/api/public/dl/tId-DuZ_"
+  # If true, players who decline are kicked (client must load the pack).
+  required: true
+  # Prompt shown on the resource-pack acceptance screen.
+  prompt: "Install the Moloch resource pack to see the Scrying Table in all its glory."
