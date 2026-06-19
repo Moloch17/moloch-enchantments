@@ -50,6 +50,10 @@ public final class EnchantTableDecorator implements Listener {
     // the book closes.
     private static final double SHOW_RANGE_SQ = 3.0 * 3.0;
 
+    // Swirl: PORTAL particles arcing inward, uniformly distributed on a sphere around the eye.
+    private static final int SWIRL_COUNT = 1;          // particles per emission
+    private static final double SWIRL_RADIUS = 0.6;    // radius of the surrounding sphere
+
     private final Plugin plugin;
     private final Map<String, UUID> eyes = new HashMap<>();
     private final Map<UUID, Boolean> visible = new HashMap<>();
@@ -145,6 +149,11 @@ public final class EnchantTableDecorator implements Listener {
         removeEye(event.getBlock());
     }
 
+    /** The hover point of the floating eye above a table block (whether or not it is visible). */
+    public Location eyeLocation(Location tableBlock) {
+        return tableBlock.clone().add(0.5, HOVER_HEIGHT, 0.5);
+    }
+
     // ---- Display management ----
 
     private void spawnEye(Block block) {
@@ -218,19 +227,21 @@ public final class EnchantTableDecorator implements Listener {
     }
 
     /**
-     * One small End-portal particle per tick that appears about half a block out
-     * and naturally drifts back into the eye. count=0 is a directional spawn: the
-     * particle is created at {@code eye + 0.5*(ux,uy,uz)} and PORTAL particles
-     * converge toward their spawn point, so it floats inward.
+     * Particles arc inward toward the eye from a uniform sphere around it. count=0 is a
+     * directional spawn whose offset is the velocity (scaled by the trailing speed): the particle
+     * appears at {@code eye + radius*dir} and converges back to the eye. Directions are a
+     * uniformly random point on the unit sphere.
      */
     private void swirl(Location eye) {
-        double angle = Math.random() * Math.PI * 2.0;
-        double ux = Math.cos(angle);
-        double uz = Math.sin(angle);
-        double uy = (Math.random() - 0.5) * 0.5;   // slight vertical variance, not too high
-        // The trailing value is the appear radius (also how far the particle drifts
-        // in). PORTAL's per-particle texture size itself isn't API-adjustable.
-        eye.getWorld().spawnParticle(Particle.PORTAL, eye, 0, ux, uy, uz, 0.25);
+        World world = eye.getWorld();
+        for (int i = 0; i < SWIRL_COUNT; i++) {
+            double theta = Math.random() * Math.PI * 2.0;
+            double uy = Math.random() * 2.0 - 1.0;      // uniform cos(phi) for an even sphere
+            double ring = Math.sqrt(1.0 - uy * uy);
+            double ux = ring * Math.cos(theta);
+            double uz = ring * Math.sin(theta);
+            world.spawnParticle(Particle.PORTAL, eye, 0, ux, uy, uz, SWIRL_RADIUS);
+        }
     }
 
     private Transformation transformScaled(float scale) {

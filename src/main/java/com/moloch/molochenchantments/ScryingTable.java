@@ -9,6 +9,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
+import org.bukkit.Sound;
+import org.bukkit.SoundCategory;
 import org.bukkit.World;
 import org.bukkit.block.Biome;
 import org.bukkit.entity.Player;
@@ -26,15 +28,19 @@ import org.bukkit.inventory.MerchantRecipe;
 import org.bukkit.inventory.meta.CompassMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.BiomeSearchResult;
 import org.bukkit.util.StructureSearchResult;
+import org.bukkit.util.Vector;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
+import java.util.function.Consumer;
 
 public final class ScryingTable implements Listener {
 
@@ -106,14 +112,27 @@ public final class ScryingTable implements Listener {
         return result != null ? result.getLocation() : null;
     }
 
-    private final Plugin plugin;
-    private final Set<UUID> activePlayers = new HashSet<>();
+    // Scry timing (in ticks; 20 ticks = 1s). The portal ambience loops at 0.75 volume for at
+    // least MIN_SCRY_TICKS and until the search returns, then stops, holds silence, and pops.
+    private static final int MIN_SCRY_TICKS = 100;      // minimum 5s of looping
+    private static final int LOOP_PERIOD_TICKS = 60;    // re-trigger the ~3s ambience so it loops
+    private static final float LOOP_VOLUME = 0.5f;
+    private static final int HOLD_TICKS = 20;           // hold silence 1s before popping
+    private static final double EJECT_UP = 0.3;         // upward launch speed (arc height)
+    private static final double EJECT_OUT = 0.075;      // outward launch speed (~1 block away)
 
-    public ScryingTable(Plugin plugin) {
+    private final Plugin plugin;
+    private final EnchantTableDecorator decorator;
+    private final Set<UUID> activePlayers = new HashSet<>();
+    // The table block a player is currently scrying at, so the result can pop out of its eye.
+    private final Map<UUID, Location> tableLocations = new HashMap<>();
+
+    public ScryingTable(Plugin plugin, EnchantTableDecorator decorator) {
         this.plugin = plugin;
+        this.decorator = decorator;
     }
 
-    public void openMenu(Player player) {
+    public void openMenu(Player player, Location table) {
         Merchant merchant = Bukkit.createMerchant();
         List<MerchantRecipe> recipes = new ArrayList<>();
 
@@ -132,6 +151,7 @@ public final class ScryingTable implements Listener {
 
         merchant.setRecipes(recipes);
         activePlayers.add(player.getUniqueId());
+        tableLocations.put(player.getUniqueId(), table);
         var view = MenuType.MERCHANT.builder()
             .title(Component.text("Scrying Table"))
             .merchant(merchant)
@@ -165,14 +185,25 @@ public final class ScryingTable implements Listener {
         int costSlot = findIngredient(merchantInv, target.cost());
         if (compassSlot < 0 || costSlot < 0) return;
 
+        ItemStack compassItem = merchantInv.getItem(compassSlot);
         ItemStack costItem = merchantInv.getItem(costSlot);
-        if (costItem == null || costItem.getAmount() < target.costAmount()) return;
+        if (compassItem == null || costItem == null || costItem.getAmount() < target.costAmount()) return;
+
+        Location table = tableLocations.get(player.getUniqueId());
+        if (table == null) return;
+
+        // Snapshot exactly what is being spent so a failed scry can refund the real items
+        // (e.g. an existing locator compass the player inserted), not generic replacements.
+        ItemStack refundCompass = compassItem.clone();
+        refundCompass.setAmount(1);
+        ItemStack refundCost = costItem.clone();
+        refundCost.setAmount(target.costAmount());
 
         consume(merchantInv, compassSlot, 1);
         consume(merchantInv, costSlot, target.costAmount());
 
         plugin.getServer().getScheduler().runTask(plugin, () -> player.closeInventory());
-        activateCompass(player, target);
+        startScry(player, target, table, refundCompass, refundCost);
     }
 
     private int findIngredient(MerchantInventory inv, Material type) {
@@ -196,45 +227,125 @@ public final class ScryingTable implements Listener {
 
     @EventHandler
     public void onInventoryClose(InventoryCloseEvent event) {
-        activePlayers.remove(event.getPlayer().getUniqueId());
+        UUID id = event.getPlayer().getUniqueId();
+        activePlayers.remove(id);
+        tableLocations.remove(id);
     }
 
-    private void activateCompass(Player player, ScryTarget target) {
-        String displayName = target.display();
-        player.sendMessage(Component.text("Searching for nearest " + displayName + "...")
-            .decoration(TextDecoration.ITALIC, false));
-
+    /**
+     * Runs the search, then ~2s later (or as soon as the search returns, whichever is later)
+     * has the eye floating above the table pop out the result: the located compass on success,
+     * or the refunded ingredients if nothing was found.
+     */
+    private void startScry(Player player, ScryTarget target, Location table,
+                           ItemStack refundCompass, ItemStack refundCost) {
         final Location origin = player.getLocation();
-        final World world = player.getWorld();
+        final World searchWorld = player.getWorld();
+        final Location castAt = decorator.eyeLocation(table);
+        final World world = castAt.getWorld();
+        if (world == null) return;
+
+        // Launch the ejection toward where the player stood at click time (they may move or
+        // disconnect before the search finishes). Outward speed matches the upward speed.
+        Vector horizontal = origin.toVector().subtract(castAt.toVector()).setY(0);
+        if (horizontal.lengthSquared() > 1.0e-6) {
+            horizontal.normalize().multiply(EJECT_OUT);
+        } else {
+            horizontal.zero();
+        }
+        final Vector launch = new Vector(horizontal.getX(), EJECT_UP, horizontal.getZ());
+
+        // Kick off the search; the result is recorded for the timer below to pick up.
+        final Location[] result = new Location[1];
+        final boolean[] searchDone = new boolean[1];
+        runSearch(target, searchWorld, origin, found -> {
+            result[0] = found;
+            searchDone[0] = true;
+        });
+
+        new BukkitRunnable() {
+            int ticks = 0;
+            int phase = 0;       // 0 = looping, 1 = fading out, 2 = holding silence
+            int phaseStart = 0;
+
+            @Override
+            public void run() {
+                switch (phase) {
+                    case 0 -> {
+                        // Loop the portal ambience from the table's eye, starting immediately.
+                        if (ticks % LOOP_PERIOD_TICKS == 0) {
+                            playLoop(world, castAt, LOOP_VOLUME);
+                        }
+                        // Loop for at least MIN_SCRY_TICKS, and keep looping until the search returns.
+                        if (ticks >= MIN_SCRY_TICKS && searchDone[0]) {
+                            stopLoop(world);
+                            phase = 1;
+                            phaseStart = ticks;
+                        }
+                    }
+                    default -> {
+                        // Hold silence briefly, then pop the result out of the eye.
+                        if (ticks - phaseStart >= HOLD_TICKS) {
+                            completeScry(target, table, result[0], refundCompass, refundCost, launch);
+                            cancel();
+                            return;
+                        }
+                    }
+                }
+                ticks++;
+            }
+        }.runTaskTimer(plugin, 0L, 1L);
+    }
+
+    private void playLoop(World world, Location at, float volume) {
+        world.playSound(at, Sound.BLOCK_PORTAL_AMBIENT, SoundCategory.BLOCKS, volume, 1.0f);
+    }
+
+    private void stopLoop(World world) {
+        for (Player p : world.getPlayers()) {
+            p.stopSound(Sound.BLOCK_PORTAL_AMBIENT, SoundCategory.BLOCKS);
+        }
+    }
+
+    /** Dispatches the locate call on the correct thread and hands the result back on the main thread. */
+    private void runSearch(ScryTarget target, World world, Location origin, Consumer<Location> callback) {
         if (target.async()) {
-            // Biome searches are async-safe; run them off the main thread, then deliver back on it.
+            // Biome searches are async-safe; run them off the main thread, then resume on it.
             plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
                 Location found = target.locator().locate(world, origin);
-                plugin.getServer().getScheduler().runTask(plugin, () -> deliver(player, target, found));
+                plugin.getServer().getScheduler().runTask(plugin, () -> callback.accept(found));
             });
         } else {
             // Structure searches must run on the main thread.
-            plugin.getServer().getScheduler().runTask(plugin, () ->
-                deliver(player, target, target.locator().locate(world, origin)));
+            plugin.getServer().getScheduler().runTask(plugin,
+                () -> callback.accept(target.locator().locate(world, origin)));
         }
     }
 
-    private void deliver(Player player, ScryTarget target, Location found) {
-        String displayName = target.display();
-        if (found == null) {
-            player.sendMessage(Component.text("Could not find " + displayName + " within range.")
-                .decoration(TextDecoration.ITALIC, false));
-            return;
-        }
+    private void completeScry(ScryTarget target, Location table, Location found,
+                              ItemStack refundCompass, ItemStack refundCost, Vector launch) {
+        // Pop from the eye's computed hover point, so it works even if the eye is faded out.
+        Location pop = decorator.eyeLocation(table);
+        World world = pop.getWorld();
+        if (world == null) return;
 
-        ItemStack locator = buildLocatorCompass(found, displayName);
-        HashMap<Integer, ItemStack> overflow = player.getInventory().addItem(locator);
-        for (ItemStack leftover : overflow.values()) {
-            player.getWorld().dropItemNaturally(player.getLocation(), leftover);
+        if (found != null) {
+            popOut(world, pop, buildLocatorCompass(found, target.display()), launch);
+            world.playSound(pop, Sound.ENTITY_ENDER_EYE_DEATH, SoundCategory.BLOCKS, 1.0f, 1.0f);
+        } else {
+            // Nothing found: refund the exact items the player spent.
+            popOut(world, pop, refundCompass, launch);
+            popOut(world, pop, refundCost, launch);
+            world.playSound(pop, Sound.ENTITY_ENDER_EYE_DEATH, SoundCategory.BLOCKS, 1.0f, 0.7f);
         }
+    }
 
-        player.sendMessage(Component.text("Your compass now points to the nearest " + displayName + ".")
-            .decoration(TextDecoration.ITALIC, false));
+    /** Drops a stack at the eye so it pops up and outward (toward the crafter) out of the table. */
+    private void popOut(World world, Location pop, ItemStack stack, Vector launch) {
+        world.dropItem(pop, stack, item -> {
+            item.setVelocity(launch.clone());
+            item.setPickupDelay(10);
+        });
     }
 
     private ItemStack buildLocatorCompass(Location target, String displayName) {

@@ -25,7 +25,7 @@ public final class EnchantingTableListener implements Listener {
                 && event.getClickedBlock() != null
                 && event.getClickedBlock().getType() == Material.ENCHANTING_TABLE) {
             event.setCancelled(true);
-            scryingTable.openMenu(event.getPlayer());
+            scryingTable.openMenu(event.getPlayer(), event.getClickedBlock().getLocation());
         }
     }
 

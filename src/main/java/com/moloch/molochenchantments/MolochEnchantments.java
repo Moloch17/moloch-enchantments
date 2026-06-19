@@ -12,14 +12,14 @@ public final class MolochEnchantments extends JavaPlugin {
     public void onEnable() {
         saveDefaultConfig();
 
-        ScryingTable scryingTable = new ScryingTable(this);
-        Bukkit.getPluginManager().registerEvents(scryingTable, this);
-        Bukkit.getPluginManager().registerEvents(new EnchantingTableListener(scryingTable), this);
-        Bukkit.getPluginManager().registerEvents(new AnvilListener(this), this);
-
         decorator = new EnchantTableDecorator(this);
         Bukkit.getPluginManager().registerEvents(decorator, this);
         decorator.start();
+
+        ScryingTable scryingTable = new ScryingTable(this, decorator);
+        Bukkit.getPluginManager().registerEvents(scryingTable, this);
+        Bukkit.getPluginManager().registerEvents(new EnchantingTableListener(scryingTable), this);
+        Bukkit.getPluginManager().registerEvents(new AnvilListener(this), this);
 
         EnchantingTableRecipe tableRecipe = new EnchantingTableRecipe(this);
         tableRecipe.register();
